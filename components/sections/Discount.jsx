@@ -24,7 +24,7 @@ export default function Discount() {
                             on your first project
                         </p>
                         <Button as="a"
-                            href="mailto:tony.sun.me@outlook.com?subject=Contact me"
+                            href="mailto:tony.sun.me@outlook.com?subject=Contacting Tony Sun&body=Hi Tony, I would like to discuss a potential project with you."
                             icon={FaPaperPlane} className="mx-auto lg:mx-0" alt>
                                 Contact Me
                         </Button>
