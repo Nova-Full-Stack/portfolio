@@ -3,13 +3,13 @@ const testimonials = [
         name: 'Juan P. Flores',
         avatar: 'clients/hamzah104.jpg',
         description:
-            'Extremely happy with the services provided by Zhifu, great communication throughout and fast delivery. Had best experience so far than any others. Will recommend his services to anyone wanting a website builder'
+            'Extremely happy with the services provided by Tony, great communication throughout and fast delivery. Had best experience so far than any others. Will recommend his services to anyone wanting a website builder'
     },
     {
         name: 'Sophia Armenta',
         avatar: 'clients/nurazriersyafiq.jpeg',
         description:
-            'Zhifu is a great developer, delivering pretty fast. And replying to questions or fixes with within few hours. I would recommend working with Zhifu and I am happy to work with him.'
+            'Tony is a great developer, delivering pretty fast. And replying to questions or fixes with within few hours. I would recommend working with Tony and I am happy to work with him.'
     },
     {
         name: 'Shawn Joe',
@@ -27,7 +27,7 @@ const testimonials = [
         name: 'Jamiumodupe',
         avatar: 'clients/jamiumodupe.jpg',
         description:
-            "Finally, everything is completed. If you can communicate your ideas very well to Zhifu, I'm very sure that he will take of the rest. He will be my go to person for my upcoming projects!"
+            "Finally, everything is completed. If you can communicate your ideas very well to Tony, I'm very sure that he will take of the rest. He will be my go to person for my upcoming projects!"
     },
     {
         name: 'Daniel Howard',

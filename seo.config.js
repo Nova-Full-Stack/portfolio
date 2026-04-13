@@ -3,23 +3,23 @@ const seo = {
     title: "Tony Sun - Senior Software Engineer",
     description:
       "Hey, I am a professional software developer who loves to build things for the web with 100% client satisfaction.",
-    canonical: "https://jflores.netlify.app/",
+    canonical: "https://tony-sun.netlify.app/",
     themeColor: "#3b82f6",
     openGraph: {
       title: "Tony Sun - Senior Software Engineer",
       description:
         "Hey, I am a professional software developer who loves to build things for the web with 100% client satisfaction.",
-      url: "https://jflores.netlify.app/",
+      url: "https://tony-sun.netlify.app/",
       type: "profile",
       profile: {
-        firstName: "Zhifu",
-        lastName: "Zhang",
-        username: "zhifu-zhang",
+        firstName: "Tony",
+        lastName: "Sun",
+        username: "tony-sun",
         gender: "male",
       },
       images: [
         {
-          url: "https://jflores.netlify.app/assets/juan.png",
+          url: "https://tony-sun.netlify.app/assets/tony.png",
           width: 360,
           height: 360,
           alt: "Tony Sun",
@@ -31,12 +31,12 @@ const seo = {
     socialProfileJsonLd: {
       type: "Person",
       name: "Tony Sun",
-      url: "https://jflores.netlify.app/",
-      sameAs: ["https://twitter.com/juanflores"],
+      url: "https://tony-sun.netlify.app/",
+      sameAs: ["https://twitter.com/tony-sun"],
     },
     webpageJsonLd: {
       description: "What does the fox say?",
-      id: "https://jflores.netlify.app/#home",
+      id: "https://tony-sun.netlify.app/#home",
       lastReviewed: new Date().toISOString(),
       reviewedBy: {
         type: "Person",

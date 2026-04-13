@@ -39,7 +39,7 @@ export default function Header() {
       <nav className="container flex items-center py-3 md:py-4 justify-between">
         <Link href="/">
           <a aria-label="logo">
-            <img src="assets/tony_logo.png" alt="" className="w-12" style={{ maxWidth: '150px' }} />
+            <img src="assets/tony_logo.png" alt="" className="w-[110px]"/>
           </a>
         </Link>
         <ScrollSpy
