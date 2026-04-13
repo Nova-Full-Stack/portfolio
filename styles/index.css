@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+    outline: 0;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+html {
+    scroll-behavior: smooth !important;
+}
+
+button * {
+    user-select: none;
+}
