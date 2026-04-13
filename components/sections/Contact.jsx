@@ -19,7 +19,7 @@ export default function Contact() {
         </div>
         <Button
           as="a"
-          href="mailto:tony.sun.me@outlook.com?subject=subjectContent"
+          href="mailto:tony.sun.me@outlook.com?subject=Contact me"
           icon={FaPaperPlane}
           className="mx-auto mt-8 px-14"
         >
