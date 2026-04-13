@@ -5,33 +5,34 @@ const about = {
         </>
     ),
     experience: {
-        yearsOfExperience: 8,
+        yearsOfExperience: 9,
         completedProjects: 10,
-        completedWorks: 5
+        completedWorks: 7,
     },
-    resumeLink: 'https://resume.io/r/GXjBHm9vj',
+    resumeLink: 'https://resume.io/r/tony-sun',
     skills: [
-        'HTML',
-        'CSS',
+        "Python",
         'JavaScript',
+        "TypeScript",        
+        'Node.js',
+        'Express',
         'React',
+        'NextJS',
         'Redux',
         'Vue',
         'Angular 8+',
-        'AWS',
-        'GCP',
-        'Azure',
         'Tailwind CSS',
         'Bootstrap',
         'Material UI',
+        'AWS',
+        'GCP',
+        'Azure',
         'GraphQL',
         'MongoDB',
-        'Express',
-        'Mysql',
-        'Node',
+        "PostgreSQL",
+        'MySQL',
         'Git',
         'Docker',
-        'NextJS'
     ]
 }
 
