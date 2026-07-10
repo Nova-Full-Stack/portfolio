@@ -41,7 +41,10 @@ const seo = {
         addressRegion: company.location.region,
         addressCountry: company.location.country,
       },
-      sameAs: ["https://github.com/Nova-Full-Stack"],
+      sameAs: [
+        "https://github.com/Nova-Full-Stack",
+        "https://www.linkedin.com/company/136095481",
+      ],
     },
     webpageJsonLd: {
       description,
