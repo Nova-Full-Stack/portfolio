@@ -108,6 +108,21 @@ tab if you ever want one.
 The share image is square. Social cards crop to roughly 1.91:1, so a dedicated
 1200×630 image would present better.
 
+## Deployment (Vercel)
+
+[`vercel.json`](vercel.json) pins `framework: "nextjs"` and sets `buildCommand`
+and `outputDirectory` to `null`.
+
+`null` is meaningful here, not filler. `vercel.json` takes precedence over the
+project's dashboard settings, and `null` means "use the framework default"
+rather than "unset". Without it, a dashboard **Output Directory** of `dist` (the
+Vite/CRA convention, the default when a project is created with the wrong
+framework preset) makes deploys fail *after a successful build* with:
+
+> Error: No Output Directory named "dist" found after the Build completed.
+
+Next.js builds to `.next`, never `dist`.
+
 ## Known issues
 
 **Next.js 12.3.1 has an open critical advisory.** `npm audit` reports it; the only
