@@ -2,7 +2,7 @@ import company from "./data/company";
 
 const title = `${company.name} - Web & Software Development Agency`;
 const description =
-  "Nova Full Stack LLC designs, builds and ships production web applications — from architecture through cloud deployment.";
+  "Nova Full Stack designs, builds and ships production web applications — from architecture through cloud deployment.";
 
 const seo = {
   defaultSeo: {

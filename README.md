@@ -1,6 +1,6 @@
-# Nova Full Stack LLC — Company Site
+# Nova Full Stack — Company Site
 
-Marketing site for Nova Full Stack LLC, a web and software development agency.
+Marketing site for Nova Full Stack, a web and software development agency.
 Built with [Next.js](https://nextjs.org/) 12 (pages router) and Tailwind CSS.
 
 ## Getting started

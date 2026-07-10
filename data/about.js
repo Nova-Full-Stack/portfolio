@@ -1,7 +1,7 @@
 const about = {
     introduction: (
         <>
-            Nova Full Stack LLC builds responsive, enterprise-grade web applications that are
+            Nova Full Stack builds responsive, enterprise-grade web applications that are
             scalable and maintainable. We work across every stage of the development cycle —
             discovery, architecture, implementation, deployment and ongoing support — so our
             clients get a system that keeps working long after launch.

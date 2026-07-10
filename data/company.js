@@ -1,7 +1,7 @@
 // Single source of truth for company identity. Every name, address and URL on
 // the site reads from here, so rebranding is a one-file change.
 const company = {
-    name: 'Nova Full Stack LLC',
+    name: 'Nova Full Stack',
     shortName: 'Nova Full Stack',
 
     // TODO: replace with the real business address before launch.

@@ -28,7 +28,6 @@ export default function Logo({ className, size = 32, showWordmark = true }) {
                     <span className="text-[17px] font-extrabold tracking-tightest text-fg">
                         Nova <span className="text-accent">Full Stack</span>
                     </span>
-                    <span className="text-[10px] font-bold tracking-wider text-muted">LLC</span>
                 </span>
             )}
         </span>
