@@ -1,10 +1,10 @@
-import { FaGithub, FaLinkedin, FaSkype, FaTwitter } from "react-icons/fa";
+import { FiGithub } from "react-icons/fi";
 
 const socialLinks = [
   {
     name: "Github",
-    icon: FaGithub,
-    link: "https://github.com/fullstack-dev-web",
+    icon: FiGithub,
+    link: "https://github.com/Nova-Full-Stack",
   },
 ];
 

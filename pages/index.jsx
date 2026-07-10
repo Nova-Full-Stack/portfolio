@@ -1,22 +1,19 @@
 import About from '@/components/sections/About'
-import Contact from '@/components/sections/Contact'
-import Discount from '@/components/sections/Discount'
+import Cta from '@/components/sections/Cta'
 import Hero from '@/components/sections/Hero'
-import Portfolio from '@/components/sections/Portfolio'
 import Services from '@/components/sections/Services'
-import Testimonial from '@/components/sections/Testimonial'
 import Layout from '@/layouts/Layout'
 
+// <Portfolio /> is intentionally not rendered — the projects it lists are personal
+// demos rather than client work. Restore it here and re-add `Work: 'portfolio'` to
+// data/common/menus.js once there is client work to show.
 export default function Home() {
     return (
         <Layout>
             <Hero />
             <About />
             <Services />
-            <Portfolio />
-            <Testimonial />
-            <Discount />
-            {/* <Contact /> */}
+            <Cta />
         </Layout>
     )
 }

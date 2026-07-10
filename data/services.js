@@ -1,42 +1,58 @@
-import { FcBarChart, FcEngineering, FcLinux, FcLock, FcServices, FcSupport } from 'react-icons/fc'
+import {
+    FiBarChart2,
+    FiCloud,
+    FiLayers,
+    FiLayout,
+    FiServer,
+    FiShield,
+} from 'react-icons/fi'
 
+// `id` is the anchor each service card renders, so the footer can deep-link to a
+// specific card instead of dumping every link on #services. Keep them stable —
+// they are public URLs once shared.
 const services = [
     {
+        id: 'web-design-development',
         title: 'Web Design & Development',
         description:
-            'I will convert any design to a unique and professional looking website. My design will be fully responsive and seo optimized.',
-        icon: FcServices
+            'We turn designs into fast, professional websites — fully responsive, accessible and search-optimized from the first commit.',
+        icon: FiLayout,
     },
     {
+        id: 'backend-solutions',
         title: 'Backend Solutions',
         description:
-            'Do you want your own scalable CMS or rest api? I will make fully customizable headless CMS or rest api using nodejs',
-        icon: FcSupport
+            'Need a scalable CMS or REST API? We build customizable headless CMS platforms and APIs on Node.js, sized to your traffic.',
+        icon: FiServer,
     },
     {
-        title: 'FullStack Solutions',
+        id: 'full-stack-applications',
+        title: 'Full-Stack Applications',
         description:
-            'I will make whole web application like e-commerce store, blogging platform, chat application using MERN stack.',
-        icon: FcEngineering
+            'End-to-end web applications — e-commerce, publishing platforms, real-time chat — architected and delivered by one team.',
+        icon: FiLayers,
     },
     {
-        title: 'Web Scraping',
+        id: 'data-web-scraping',
+        title: 'Data & Web Scraping',
         description:
-            "Do you want to research your competitor website's data for your business? I will make a web scraper for you.",
-        icon: FcBarChart
+            'Turn public data into a decision-making asset. We build reliable scrapers and pipelines that keep your market research current.',
+        icon: FiBarChart2,
     },
     {
+        id: 'bug-fixing-security',
         title: 'Bug Fixing & Security',
         description:
-            "Are you having trouble with React or Node website? Don't worry, I am here to fix any kind of bugs of your exiting website.",
-        icon: FcLock
+            'Inherited a React or Node codebase that misbehaves? We diagnose, fix and harden existing applications against real threats.',
+        icon: FiShield,
     },
     {
+        id: 'cloud-deployment',
         title: 'Cloud Deployment',
         description:
-            'I will deploy or migrate your website on any shared or linux VPS hosting and configure it for production.',
-        icon: FcLinux
-    }
+            'We deploy and migrate applications to any cloud or Linux VPS, configured and monitored for production from day one.',
+        icon: FiCloud,
+    },
 ]
 
 export default services

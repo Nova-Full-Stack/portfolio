@@ -1,46 +1,51 @@
+import company from "./data/company";
+
+const title = `${company.name} - Web & Software Development Agency`;
+const description =
+  "Nova Full Stack LLC designs, builds and ships production web applications — from architecture through cloud deployment.";
+
 const seo = {
   defaultSeo: {
-    title: "Tony Sun - Senior Software Engineer",
-    description:
-      "Hey, I am a professional software developer who loves to build things for the web with 100% client satisfaction.",
-    canonical: "https://tony-sun.netlify.app/",
+    title,
+    description,
+    canonical: `${company.url}/`,
     themeColor: "#3b82f6",
     openGraph: {
-      title: "Tony Sun - Senior Software Engineer",
-      description:
-        "Hey, I am a professional software developer who loves to build things for the web with 100% client satisfaction.",
-      url: "https://tony-sun.netlify.app/",
-      type: "profile",
-      profile: {
-        firstName: "Tony",
-        lastName: "Sun",
-        username: "tony-sun",
-        gender: "male",
-      },
+      title,
+      description,
+      url: `${company.url}/`,
+      type: "website",
+      siteName: company.name,
+      // Square. Most social cards crop to ~1.91:1, so a dedicated 1200x630
+      // version would present better — this at least matches the real file.
       images: [
         {
-          url: "https://tony-sun.netlify.app/assets/tony.png",
-          width: 360,
-          height: 360,
-          alt: "Tony Sun",
+          url: `${company.url}${company.logo}`,
+          width: company.logoWidth,
+          height: company.logoHeight,
+          alt: company.name,
         },
       ],
     },
   },
   jsonLd: {
     socialProfileJsonLd: {
-      type: "Person",
-      name: "Tony Sun",
-      url: "https://tony-sun.netlify.app/",
-      sameAs: ["https://twitter.com/tony-sun"],
+      type: "Organization",
+      name: company.name,
+      url: `${company.url}/`,
+      sameAs: ["https://github.com/Nova-Full-Stack"],
     },
     webpageJsonLd: {
-      description: "What does the fox say?",
-      id: "https://tony-sun.netlify.app/#home",
-      lastReviewed: new Date().toISOString(),
+      description,
+      id: `${company.url}/#home`,
+      // Static, not `new Date()` — a value that differs between build and render
+      // produces a React hydration mismatch on this JSON-LD script tag.
+      lastReviewed: "2026-07-10T00:00:00.000Z",
+      // No `type` key: next-seo derives '@type' from it and then spreads the
+      // object on top, emitting a bogus duplicate `"type"` alongside `"@type"`.
+      // It already defaults to Organization.
       reviewedBy: {
-        type: "Person",
-        name: "Tony Sun",
+        name: company.name,
       },
     },
   },

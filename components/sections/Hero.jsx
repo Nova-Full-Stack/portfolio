@@ -1,56 +1,70 @@
-import Animate from "@/components/common/Animate";
 import Button from "@/components/common/Button";
+import about from "@/data/about";
 import socialLinks from "@/data/common/socialLinks";
 import home from "@/data/home";
 import Link from "next/link";
-import { FaPaperPlane } from "react-icons/fa";
-import Typewriter from "typewriter-effect";
+import { FiArrowRight } from "react-icons/fi";
+
+const stats = [
+  { value: about.experience.yearsOfExperience, label: "Years of experience" },
+  { value: about.experience.completedProjects, label: "Projects delivered" },
+  { value: about.experience.clientsServed, label: "Clients served" },
+];
 
 export default function Hero() {
   return (
-    <section id="home" className="py-12 md:py-20 relative">
-      <div className="container grid md:grid-cols-2 items-center gap-16">
-        <div className="max-w-xl order-2 md:order-1">
-          <p className="text-indigo-500 font-semibold">Hey There 👋 I&apos;m</p>
-          <h1 className="text-4xl md:text-5xl text-neutral-800 dark:text-neutral-300 font-extrabold pt-2 pb-4">
-            <Typewriter
-              options={{
-                strings: "Tony Sun",
-                autoStart: true,
-                loop: true,
-                pauseFor: 4000,
-              }}
-            />
+    <section id="home" className="relative pt-14 pb-20 md:pt-24 md:pb-28">
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-grid" />
+      <div className="container">
+        <div className="max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+            {home.eyebrow}
+          </p>
+          <h1 className="mt-5 text-4xl sm:text-5xl md:text-6xl md:leading-[1.05] font-extrabold tracking-tightest text-fg">
+            {home.headline}
           </h1>
-          <Animate
-            as="p"
-            animateClass="animate-fadeIn"
-            animateDelay={700}
-            className="text-xl text-gray-600 dark:text-neutral-500 font-semibold mb-5"
-          >
-            <span className="text-slate-400 dark:text-neutral-400">Senior</span>{" "}
-            Software Engineer
-          </Animate>
-          <p className="mb-5">{home.introduction}</p>
-          <ul className="flex gap-6 mb-8">
-            {socialLinks.map((social, index) => (
-              <li key={index}>
-                <a
-                  href={social.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-zinc-500 hover:text-zinc-600 dark:text-current dark:hover:text-neutral-300 transition-colors"
-                  aria-label={social.name}
-                >
-                  <social.icon className="w-7 h-7" />
-                </a>
-              </li>
+          <p className="mt-6 text-base md:text-lg leading-relaxed max-w-2xl">
+            {home.introduction}
+          </p>
+
+          <div className="mt-9 flex flex-wrap items-center gap-3">
+            <Link href="#contact" passHref>
+              <Button icon={FiArrowRight} iconClassName="group-hover:translate-x-0.5">
+                Start a project
+              </Button>
+            </Link>
+            {socialLinks.map((social) => (
+              <Button
+                key={social.name}
+                as="a"
+                href={social.link}
+                target="_blank"
+                rel="noreferrer"
+                variant="secondary"
+                icon={social.icon}
+              >
+                {social.name}
+              </Button>
             ))}
-          </ul>
-          <Link href="#contact" passHref>
-            <Button icon={FaPaperPlane}>Contact Me</Button>
-          </Link>
+          </div>
         </div>
+
+        <dl className="mt-16 md:mt-24 grid grid-cols-1 sm:grid-cols-3 border-t border-line">
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="py-6 sm:py-8 border-b sm:border-b-0 sm:border-r border-line last:border-none sm:pr-8 sm:[&:not(:first-child)]:pl-8"
+            >
+              <dt className="sr-only">{stat.label}</dt>
+              <dd>
+                <span className="block text-3xl md:text-4xl font-extrabold tracking-tightest text-fg tabular-nums">
+                  {stat.value}+
+                </span>
+                <span className="mt-1 block text-sm text-muted">{stat.label}</span>
+              </dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

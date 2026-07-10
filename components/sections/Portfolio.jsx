@@ -4,64 +4,72 @@ import Title from '@/components/common/Title'
 import projects from '@/data/projects'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 
+// Not currently rendered — see pages/index.jsx.
 export default function Portfolio() {
     return (
-        <section id="portfolio" className="py-12 md:py-20">
+        <section id="portfolio" className="py-20 md:py-28 border-t border-line">
             <div className="container">
-                <Title as="h4" className="!mb-6">
-                    My Portfolio
+                <Title as="h2" eyebrow="Work">
+                    A selection of recent projects
                 </Title>
-                <Subtitle>Let&apos;s See My Recent Projects</Subtitle>
+                <Subtitle className="mb-14 md:mb-16">
+                    Things we have designed, built and shipped.
+                </Subtitle>
+
                 <Tabs>
-                    <TabList className="flex flex-wrap justify-center gap-3 md:gap-5 mb-14">
-                        {Object.keys(projects).map((field, index) => (
+                    <TabList className="flex flex-wrap gap-2 mb-12">
+                        {Object.keys(projects).map((field) => (
                             <Tab
-                                key={index}
-                                className="bg-indigo-100 dark:bg-indigo-300 text-indigo-400 dark:text-indigo-500  hover:text-indigo-500 dark:hover:text-indigo-600 text-base text-center font-bold px-5 py-1.5 rounded-md transition-colors cursor-pointer"
-                                selectedClassName="!bg-indigo-500 !text-white"
+                                key={field}
+                                className="rounded-md border border-line bg-surface px-4 py-1.5 text-sm font-medium text-muted hover:text-fg transition-colors cursor-pointer"
+                                selectedClassName="!bg-accent !text-accent-fg !border-accent"
                             >
                                 {field}
                             </Tab>
                         ))}
                     </TabList>
-                    {Object.values(projects).map((projects, index) => (
+
+                    {Object.values(projects).map((group, index) => (
                         <TabPanel
                             key={index}
-                            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+                            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
                             selectedClassName=""
                         >
-                            {projects.map((project, index) => (
-                                <Animate key={index} animateClass="animate-fadeIn">
-                                    <div className="relative rounded-lg max-w-sm md:max-w-full overflow-hidden mx-auto mb-2 group">
+                            {group.map((project, projectIndex) => (
+                                <Animate key={project.name} animateDelay={projectIndex * 70}>
+                                    <div className="group relative overflow-hidden rounded-xl border border-line bg-surface">
                                         <img
                                             src={project.image}
                                             alt={project.name}
-                                            className="w-full object-cover transition-transform duration-700 group-hover:scale-125"
+                                            loading="lazy"
+                                            className="w-full aspect-[16/10] object-cover transition-transform duration-500 group-hover:scale-105"
                                         />
-                                        <div className="absolute inset-0 flex justify-center items-center transition-colors group-hover:bg-black/60">
-                                            <div className="flex gap-x-3 font-bold invisible group-hover:visible">
-                                                {!!project.github && (
-                                                    <a
-                                                        href={project.github}
-                                                        target="__blank"
-                                                        className="text-neutral-200 underline"
-                                                    >
-                                                        Github
-                                                    </a>
-                                                )}
-                                                {!!project.live && (
-                                                    <a
-                                                        href={project.live}
-                                                        target="__blank"
-                                                        className="text-neutral-200 underline"
-                                                    >
-                                                        Live
-                                                    </a>
-                                                )}
-                                            </div>
+                                        <div className="absolute inset-0 flex items-center justify-center gap-4 bg-canvas/85 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                                            {!!project.github && (
+                                                <a
+                                                    href={project.github}
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                    className="text-sm font-semibold text-fg underline underline-offset-4"
+                                                >
+                                                    Github
+                                                </a>
+                                            )}
+                                            {!!project.live && (
+                                                <a
+                                                    href={project.live}
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                    className="text-sm font-semibold text-fg underline underline-offset-4"
+                                                >
+                                                    Live
+                                                </a>
+                                            )}
                                         </div>
                                     </div>
-                                    <p className="text-center font-semibold">{project.name}</p>
+                                    <p className="mt-3 text-sm font-medium text-fg">
+                                        {project.name}
+                                    </p>
                                 </Animate>
                             ))}
                         </TabPanel>

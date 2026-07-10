@@ -1,7 +1,31 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(grep -v \"^\\\\./\\\\.next\")",
+      "Bash(git mv *)",
+      "Bash(grep -o '<h1[^>]*>.\\\\{0,120\\\\}' .next/server/pages/index.html)",
+      "Bash(git rm *)",
+      "Bash(node -e ' *)",
+      "Bash(git status *)",
+      "Bash(grep -o \"6.8 kB\\\\|/ *[0-9.]* kB\" /dev/null)",
+      "Read(//c/Users/Administrator/Documents/**)",
+      "Bash(cd \"c:/Users/Administrator/Documents/Coding/nova/portfolio\" && cp \"/c/Users/Administrator/Documents/nova.png\" public/assets/nova-logo.png && file public/assets/nova-logo.png && ls -la public/assets/)",
+      "Bash(python -)",
+      "Bash(rm -rf .next)",
+      "Bash(npm run *)",
+      "Bash(node \"C:/Users/ADMINI~1/AppData/Local/Temp/claude/c--Users-Administrator-Documents-Coding-nova-portfolio/065351be-942d-4b8b-b140-2337a9349186/scratchpad/audit.js\")",
+      "Bash(node -p \"require\\('next-seo/package.json'\\).version\")",
+      "Bash(grep -roh \"reviewedBy[^,;]\\\\{0,160\\\\}\" node_modules/next-seo/lib/)",
+      "Bash(awk '/function setReviewedBy/,/^}/' node_modules/next-seo/lib/next-seo.modern.js)",
+      "Bash(node -p \"JSON.stringify\\(require\\('./package.json'\\).dependencies, null, 2\\)\")",
+      "Bash(npm audit *)",
+      "Bash(node -p \"require\\('./package.json'\\).dependencies.next\")",
+      "Bash(echo \"next before: $\\(node -p \"require\\('./package.json'\\).dependencies.next\"\\)\")",
+      "Bash(echo \"next after : $\\(node -p \"require\\('./package.json'\\).dependencies.next\"\\)\")"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\Administrator\\Documents"
     ]
   }
 }

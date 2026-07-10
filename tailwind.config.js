@@ -1,6 +1,14 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 const withAnimations = require('animated-tailwindcss')
 
+/**
+ * Colors are semantic tokens, not raw hues. Each maps to a CSS variable defined
+ * for both themes in styles/index.css, so `bg-surface` is correct in light and
+ * dark without a `dark:` variant. Reach for a literal Tailwind color only when
+ * the value genuinely should not flip between themes.
+ */
+const token = (name) => `rgb(var(--${name}) / <alpha-value>)`
+
 /** @type {import('tailwindcss').Config} */
 module.exports = withAnimations({
     darkMode: 'class',
@@ -18,14 +26,30 @@ module.exports = withAnimations({
             xl: '1280px'
         },
         extend: {
+            colors: {
+                canvas: token('canvas'),
+                surface: token('surface'),
+                line: token('line'),
+                fg: token('fg'),
+                muted: token('muted'),
+                accent: token('accent'),
+                'accent-fg': token('accent-fg')
+            },
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans]
+                sans: ['Inter', ...defaultTheme.fontFamily.sans]
+            },
+            letterSpacing: {
+                tightest: '-0.045em'
             },
             container: {
                 center: true,
                 padding: {
-                    DEFAULT: '0.8rem',
-                    sm: '1rem'
+                    DEFAULT: '1.25rem',
+                    sm: '1.5rem',
+                    lg: '2rem'
+                },
+                screens: {
+                    xl: '1120px'
                 }
             }
         }

@@ -1,19 +1,21 @@
 const about = {
     introduction: (
         <>
-      I specialize in creating responsive web applications at an enterprise level that are scalable and maintainable. Experienced with all stages of the development cycle for dynamic web projects.
+            Nova Full Stack LLC builds responsive, enterprise-grade web applications that are
+            scalable and maintainable. We work across every stage of the development cycle —
+            discovery, architecture, implementation, deployment and ongoing support — so our
+            clients get a system that keeps working long after launch.
         </>
     ),
     experience: {
         yearsOfExperience: 9,
         completedProjects: 10,
-        completedWorks: 7,
+        clientsServed: 7,
     },
-    resumeLink: 'https://resume.io/r/tony-sun',
     skills: [
-        "Python",
+        'Python',
         'JavaScript',
-        "TypeScript",        
+        'TypeScript',
         'Node.js',
         'Express',
         'React',
@@ -29,11 +31,11 @@ const about = {
         'Azure',
         'GraphQL',
         'MongoDB',
-        "PostgreSQL",
+        'PostgreSQL',
         'MySQL',
         'Git',
         'Docker',
-    ]
+    ],
 }
 
 export default about

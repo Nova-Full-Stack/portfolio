@@ -1,29 +1,43 @@
 import Button from "@/components/common/Button";
 import Subtitle from "@/components/common/Subtitle";
 import Title from "@/components/common/Title";
-import { FaPaperPlane, FaEnvelope } from "react-icons/fa";
+import company from "@/data/company";
+import { FiArrowRight, FiMail } from "react-icons/fi";
 
-const EMAIL = "tony.sun.me@outlook.com";
+const mailto = `mailto:${company.email}?subject=${encodeURIComponent(
+  `Project inquiry for ${company.name}`
+)}`;
 
+// Not rendered by default: <Cta /> already owns the #contact anchor. Swap one for
+// the other in pages/index.jsx rather than rendering both — duplicate ids break
+// the header's scrollspy.
 export default function Contact() {
   return (
-    <section id="contact" className="py-12 md:py-24">
-      <div className="container max-w-5xl text-center">
-        <Title as="h6" className="!mb-6">
-          Get In Touch
+    <section id="contact" className="py-20 md:py-28 border-t border-line">
+      <div className="container text-center">
+        <Title as="h2" eyebrow="Contact">
+          Let&apos;s start a conversation
         </Title>
-        <Subtitle>Let&apos;s Start a Conversation</Subtitle>
-        <div className="flex items-center justify-center gap-2 mt-8 text-lg">
-          <FaEnvelope className="text-primary" />
-          <span>{EMAIL}</span>
+        <Subtitle className="mx-auto">
+          Tell us what you&apos;re building and we&apos;ll get back to you within one
+          business day.
+        </Subtitle>
+
+        <div className="mt-8 flex items-center justify-center gap-2 text-sm">
+          <FiMail className="w-4 h-4 text-accent" aria-hidden="true" />
+          <a href={mailto} className="text-muted hover:text-fg transition-colors">
+            {company.email}
+          </a>
         </div>
+
         <Button
           as="a"
-          href="mailto:tony.sun.me@outlook.com?subject=Contact me"
-          icon={FaPaperPlane}
-          className="mx-auto mt-8 px-14"
+          href={mailto}
+          icon={FiArrowRight}
+          iconClassName="group-hover:translate-x-0.5"
+          className="mx-auto mt-8"
         >
-          Contact Me
+          Contact us
         </Button>
       </div>
     </section>

@@ -2,17 +2,94 @@
 @tailwind components;
 @tailwind utilities;
 
-*,
-*::before,
-*::after {
-    outline: 0;
-    -webkit-tap-highlight-color: transparent !important;
+@layer base {
+    /*
+     * Channel triplets (no rgb() wrapper) so Tailwind can inject <alpha-value>.
+     * Light is the fallback; .dark is the shipped default — see public/theme.js.
+     */
+    :root {
+        --canvas: 255 255 255;
+        --surface: 249 250 251;
+        --line: 226 226 234;
+        --fg: 20 20 27;
+        --muted: 100 101 116;
+        --accent: 79 70 229;
+        --accent-fg: 255 255 255;
+    }
+
+    .dark {
+        --canvas: 9 9 13;
+        --surface: 17 17 24;
+        --line: 38 38 48;
+        --fg: 235 235 242;
+        --muted: 140 141 157;
+        --accent: 129 140 248;
+        --accent-fg: 9 9 13;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* The sticky header is ~72px; keep anchor targets clear of it. */
+    :target,
+    section[id] {
+        scroll-margin-top: 6rem;
+    }
+
+    body {
+        background-color: rgb(var(--canvas));
+        color: rgb(var(--muted));
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::selection {
+        background-color: rgb(var(--accent) / 0.25);
+        color: rgb(var(--fg));
+    }
+
+    *,
+    *::before,
+    *::after {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Keep a visible ring for keyboard users; drop it for mouse clicks. */
+    :focus-visible {
+        outline: 2px solid rgb(var(--accent));
+        outline-offset: 2px;
+    }
+
+    button * {
+        user-select: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
 }
 
-html {
-    scroll-behavior: smooth !important;
-}
-
-button * {
-    user-select: none;
+@layer components {
+    /*
+     * Faint grid, drawn once behind the page. Fades out toward the bottom so it
+     * reads as texture in the hero rather than wallpaper on every section.
+     */
+    .bg-grid {
+        background-image: linear-gradient(to right, rgb(var(--line) / 0.55) 1px, transparent 1px),
+            linear-gradient(to bottom, rgb(var(--line) / 0.55) 1px, transparent 1px);
+        background-size: 72px 72px;
+        -webkit-mask-image: radial-gradient(ellipse 100% 60% at 50% 0%, #000 40%, transparent 100%);
+        mask-image: radial-gradient(ellipse 100% 60% at 50% 0%, #000 40%, transparent 100%);
+    }
 }

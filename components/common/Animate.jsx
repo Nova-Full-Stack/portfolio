@@ -5,13 +5,16 @@ export default function Animate({
     as: Component = 'div',
     className,
     animateClass = 'animate-fadeIn',
-    animateDurationClass = 'animate-duration-[1800ms]',
+    animateDurationClass = 'animate-duration-[700ms]',
     animateDelay = 0,
     children,
     ...props
 }) {
     const [ref, isInView] = useInView({
-        threshold: 1,
+        // Was `threshold: 1`, which required an element to be 100% visible before
+        // it faded in — anything taller than the viewport stayed at opacity 0
+        // forever. A small fraction is all we want.
+        threshold: 0.15,
         triggerOnce: true,
         initialInView: true
     })

@@ -1,15 +1,29 @@
 import clsx from 'clsx'
 
-export default function Title({ as: Component = 'h1', children, className, ...props }) {
+/**
+ * Section heading. `eyebrow` renders the small accent label above the heading;
+ * omit it for a bare title.
+ */
+export default function Title({
+    as: Component = 'h2',
+    eyebrow,
+    children,
+    className,
+    ...props
+}) {
     return (
-        <Component
-            className={clsx(
-                "text-3xl md:text-4xl text-neutral-700 dark:text-neutral-300 text-center font-bold pb-5 mb-20 relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-10 after:h-1.5 after:bg-indigo-500 after:rounded-lg",
-                className
+        <div className={clsx('mb-5', className)}>
+            {eyebrow && (
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-4">
+                    {eyebrow}
+                </p>
             )}
-            {...props}
-        >
-            {children}
-        </Component>
+            <Component
+                className="text-3xl md:text-[2.5rem] md:leading-[1.1] font-extrabold tracking-tightest text-fg"
+                {...props}
+            >
+                {children}
+            </Component>
+        </div>
     )
 }
