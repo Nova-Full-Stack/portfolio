@@ -5,7 +5,7 @@ import socialLinks from "@/data/common/socialLinks";
 import footer from "@/data/footer";
 import services from "@/data/services";
 import Link from "next/link";
-import { FiArrowUp, FiMail } from "react-icons/fi";
+import { FiArrowUp, FiMail, FiMapPin } from "react-icons/fi";
 
 const mailto = `mailto:${company.email}?subject=${encodeURIComponent(
   `Project inquiry for ${company.name}`
@@ -90,6 +90,10 @@ export default function Footer() {
               <FiMail className="w-4 h-4 shrink-0" aria-hidden="true" />
               {company.email}
             </a>
+            <p className="mt-3 flex items-center gap-2 text-sm text-muted">
+              <FiMapPin className="w-4 h-4 shrink-0" aria-hidden="true" />
+              {company.location.label}
+            </p>
             <p className="mt-4 text-sm leading-relaxed text-muted">
               {footer.responseNote}
             </p>

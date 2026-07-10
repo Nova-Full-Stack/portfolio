@@ -22,7 +22,10 @@
       "Bash(npm audit *)",
       "Bash(node -p \"require\\('./package.json'\\).dependencies.next\")",
       "Bash(echo \"next before: $\\(node -p \"require\\('./package.json'\\).dependencies.next\"\\)\")",
-      "Bash(echo \"next after : $\\(node -p \"require\\('./package.json'\\).dependencies.next\"\\)\")"
+      "Bash(echo \"next after : $\\(node -p \"require\\('./package.json'\\).dependencies.next\"\\)\")",
+      "Bash(awk '/function SocialProfileJsonLd/,/^}/' node_modules/next-seo/lib/next-seo.modern.js)",
+      "Bash(awk '/function JsonLd/,/^}/' node_modules/next-seo/lib/next-seo.modern.js)",
+      "WebFetch(domain:www.safedate.net)"
     ],
     "additionalDirectories": [
       "C:\\Users\\Administrator\\Documents"

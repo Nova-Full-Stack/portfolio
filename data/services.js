@@ -1,6 +1,7 @@
 import {
     FiBarChart2,
     FiCloud,
+    FiCpu,
     FiLayers,
     FiLayout,
     FiServer,
@@ -11,6 +12,15 @@ import {
 // specific card instead of dumping every link on #services. Keep them stable —
 // they are public URLs once shared.
 const services = [
+    {
+        id: 'ai-integration',
+        title: 'AI Integration',
+        description:
+            'We embed large language models into your product — assistants, retrieval-augmented search and workflow automation — built on Claude and other leading model APIs.',
+        icon: FiCpu,
+        // Rendered as a full-width lead card. See components/sections/Services.jsx.
+        featured: true,
+    },
     {
         id: 'web-design-development',
         title: 'Web Design & Development',

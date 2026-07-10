@@ -33,6 +33,14 @@ const seo = {
       type: "Organization",
       name: company.name,
       url: `${company.url}/`,
+      // next-seo stamps @type only at the top level, so the nested PostalAddress
+      // must carry its own.
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: company.location.city,
+        addressRegion: company.location.region,
+        addressCountry: company.location.country,
+      },
       sameAs: ["https://github.com/Nova-Full-Stack"],
     },
     webpageJsonLd: {

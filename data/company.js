@@ -10,6 +10,14 @@ const company = {
     // TODO: replace with the production domain before launch.
     url: 'https://novafullstack.com',
 
+    // `label` is what renders on the page; the parts feed schema.org address.
+    location: {
+        label: 'Fairburn, GA, USA',
+        city: 'Fairburn',
+        region: 'GA',
+        country: 'US',
+    },
+
     copyrightYear: 2026,
 
     // The source PNG has no alpha channel — its blue-grey backdrop is baked in.

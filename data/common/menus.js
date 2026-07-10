@@ -4,6 +4,7 @@ const menus = {
     Home: 'home',
     About: 'about',
     Services: 'services',
+    Clients: 'clients',
     Contact: 'contact'
 }
 
