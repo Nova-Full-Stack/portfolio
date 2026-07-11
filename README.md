@@ -72,36 +72,39 @@ variable blocks in `styles/index.css`.
 Type is Inter. Icons are [Feather](https://feathericons.com) via
 `react-icons/fi` — monochrome stroke icons only, never the multicolor `fc` set.
 
-The logo lives at `public/assets/nova-logo.png` and is rendered everywhere via
-[`components/common/Logo.jsx`](components/common/Logo.jsx) — header, footer,
-favicon and the Open Graph image all resolve from `logo` in
-[`data/company.js`](data/company.js).
+Two logo assets live in `public/assets/`, both resolved from
+[`data/company.js`](data/company.js):
 
-**The source PNG has no alpha channel** (360×360, 8-bit RGB), so its blue-grey
-backdrop is part of the image. `Logo` therefore renders it as a rounded tile,
-which makes the opaque square read as deliberate on a dark background. If you
-obtain a transparent SVG or PNG, drop it in, update `company.logo`, and remove
-the `rounded-md` from `Logo`.
+- `nova-logo.png` — the full lockup (rocket mark + "NOVA FULL STACK" wordmark),
+  1254×1254. Feeds the Open Graph image (`company.logo`).
+- `nova-mark.png` — just the rocket mark, cropped out of the lockup, 512×512.
+  Rendered in the header and footer via
+  [`components/common/Logo.jsx`](components/common/Logo.jsx) (`company.mark`),
+  beside a separate text wordmark. It is also the favicon / app-icon source.
+
+**Both source images are opaque** (white background), so `Logo` renders the mark
+as a rounded white tile, which makes the square read as deliberate on a dark
+background. If you obtain a transparent version, drop it in and remove the
+`rounded-md` from `Logo`.
 
 ### Favicon
 
-Two generated assets, both derived from `nova-logo.png`:
+Two generated assets, both cropped from the rocket mark:
 
 - `public/favicon.ico` — 16×16, 32×32 and 48×48 renders in one file.
 - `public/assets/nova-icon.png` — 180×180, for browsers that prefer a PNG icon.
 
-Both are centre-cropped to the middle 72% of the source (the circuit filigree
-turns to noise at icon sizes and steals pixels from the wordmark) and masked to a
-**circle** with an antialiased edge, so the logo's opaque grey corners are gone.
-They must stay in sync: a browser preferring the PNG would otherwise show a
-square icon while the `.ico` renders round.
+Both are the mark on its opaque white tile and must stay in sync: a browser
+preferring the PNG would otherwise disagree with the `.ico`. `apple-touch-icon`
+points at `nova-mark.png` — iOS applies its own squircle mask and renders
+transparent pixels as black, so the opaque mark is what it needs.
 
-`apple-touch-icon` intentionally points at the opaque square `nova-logo.png` —
-iOS applies its own squircle mask and renders transparent pixels as black.
+The rocket mark stays legible down to 16×16 where the full "NOVA FULL STACK"
+wordmark would not — which is why the favicon is the mark alone, not the lockup.
 
-At 16×16 the "NOVA" lettering is not legible; no resampling fixes that, only a
-simpler mark would. A single-glyph monogram would read far better in a browser
-tab if you ever want one.
+To regenerate every asset from a new source, re-run the sharp pipeline: crop the
+mark's bounding box to a centred square, then emit `nova-logo.png` (full),
+`nova-mark.png` (512), `nova-icon.png` (180) and `favicon.ico` (16/32/48).
 
 ### Open Graph
 

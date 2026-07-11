@@ -15,7 +15,7 @@ export default function Logo({ className, size = 32, showWordmark = true }) {
     return (
         <span className={clsx('flex items-center gap-2.5', className)}>
             <img
-                src={company.logo}
+                src={company.mark}
                 alt=""
                 aria-hidden="true"
                 width={size}

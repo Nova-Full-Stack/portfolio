@@ -20,13 +20,17 @@ const company = {
 
     copyrightYear: 2026,
 
-    // The source PNG has no alpha channel — its blue-grey backdrop is baked in.
-    // Components therefore render it as a rounded tile rather than a free-standing
-    // mark. Drop a transparent SVG/PNG here and remove the tile styling in
-    // components/common/Logo.jsx if you get one.
+    // The source images are opaque (white background), so components render them
+    // on a rounded white tile rather than as free-standing marks. If you obtain a
+    // transparent version, drop it in and remove the tile styling in
+    // components/common/Logo.jsx.
+    // `logo` is the full lockup (rocket + wordmark), used for the Open Graph image
+    // and other large/social contexts. `mark` is the rocket cropped out of it,
+    // used in the header/footer <Logo> and as the favicon / app-icon source.
     logo: '/assets/nova-logo.png',
-    logoWidth: 360,
-    logoHeight: 360,
+    mark: '/assets/nova-mark.png',
+    logoWidth: 1254,
+    logoHeight: 1254,
 }
 
 export default company
