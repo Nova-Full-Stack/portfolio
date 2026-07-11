@@ -5,12 +5,12 @@ export default function Document() {
     return (
         <Html lang="en">
             <Head>
-                {/* All three icons are the rocket mark on an opaque white tile — the
-                    mark alone stays legible at 16px where the wordmark would not. The
-                    .ico and the PNG must stay in sync so browsers preferring either
-                    show the same thing. apple-touch-icon uses the same opaque mark:
-                    iOS applies its own squircle mask and paints transparency black, so
-                    an opaque source is required. */}
+                {/* All three icons are the rocket mark on a white tile — the mark alone
+                    stays legible at 16px where the wordmark would not. The .ico and the
+                    PNG are masked to a circle (transparent outside) so they read as a
+                    round icon in the tab, and must stay in sync. apple-touch-icon uses
+                    the opaque square mark instead: iOS applies its own squircle mask and
+                    paints transparency black, so it needs an opaque source. */}
                 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
                 <link rel="icon" type="image/png" href="/assets/nova-icon.png" sizes="180x180" />
                 <link rel="apple-touch-icon" href="/assets/nova-mark.png" />

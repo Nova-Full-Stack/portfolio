@@ -94,10 +94,11 @@ Two generated assets, both cropped from the rocket mark:
 - `public/favicon.ico` — 16×16, 32×32 and 48×48 renders in one file.
 - `public/assets/nova-icon.png` — 180×180, for browsers that prefer a PNG icon.
 
-Both are the mark on its opaque white tile and must stay in sync: a browser
+Both are the mark on a white tile **masked to a circle** (transparent outside) so
+they read as a round icon in a browser tab, and must stay in sync: a browser
 preferring the PNG would otherwise disagree with the `.ico`. `apple-touch-icon`
-points at `nova-mark.png` — iOS applies its own squircle mask and renders
-transparent pixels as black, so the opaque mark is what it needs.
+points at the opaque square `nova-mark.png` instead — iOS applies its own squircle
+mask and renders transparent pixels as black, so it needs an opaque source.
 
 The rocket mark stays legible down to 16×16 where the full "NOVA FULL STACK"
 wordmark would not — which is why the favicon is the mark alone, not the lockup.
